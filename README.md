@@ -49,6 +49,35 @@ Sử dụng Apache JMeter để kiểm tra hiệu suất của trang web Blue Or
 
  ![Picture6](https://github.com/KhanhChinh12/JMeter_HTTPS_API/assets/145414389/3437f996-4712-4763-b82f-6504f615cbd4)
 
+ - Kiểm tra lần 2, với thiết lập Number of Threads (users) là 4 users. Ramp-up period (seconds) ở đây là 1 giây. Loop Count được đặt là 2 lần. Tùy chọn Infinite cho phép chạy lặp lại vô hạn.
+
+![Picture7](https://github.com/KhanhChinh12/JMeter_HTTPS_API/assets/145414389/27bf2095-faa9-47d2-a654-6e24d47be0b3)
+
+ - Kết quả nhận được ở lần kiểm tra thứ 2, lần lượt:
+   + Mỗi yêu cầu HTTP được liệt kê theo thứ tự thực hiện. Các yêu cầu Blue Origin và Destination được hiển thị với biểu tượng đánh dấu thành công (màu xanh).
+   + Chi tiết kết quả của yêu cầu HTTP:
+     + Thread Name: Tên của Thread thực hiện yêu cầu, ở đây là User 1-2.
+     + Load time: Thời gian tải trang (627 ms).
+     + Connect Time: Thời gian kết nối (11 ms).
+     + Latency: Độ trễ (109 ms).
+     + Size in bytes: Kích thước của dữ liệu trả về (53247 bytes).
+     + Sent bytes: Số byte đã gửi (398 bytes).
+     + Headers size in bytes: Kích thước của header trả về (3173 bytes).
+     + Body size in bytes: Kích thước của nội dung trả về (50074 bytes).
+     + Sample Count: Số lần mẫu (1).
+     + Error Count: Số lỗi (0).
+     + Response code: Mã phản hồi HTTP (200).
+
+![Picture8](https://github.com/KhanhChinh12/JMeter_HTTPS_API/assets/145414389/ac5796a6-9bfc-4423-9c49-5962057ee9c0)
+
+ - Đánh giá kết quả kiểm tra lần 2:
+   +  Trang web có thời gian phản hồi và độ trễ khá tốt.
+   +  Máy chủ phản hồi nhanh và ổn định, không gặp lỗi khi xử lý yêu cầu.
+   +  Kết quả này cho thấy trang web Blue Origin đang hoạt động tốt dưới điều kiện kiểm tra hiện tại.
+
+![Picture9](https://github.com/KhanhChinh12/JMeter_HTTPS_API/assets/145414389/098988b1-98a0-42bb-bdbb-adb0c7639844)
+
+
 
 
 
