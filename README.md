@@ -14,7 +14,9 @@ Sử dụng Apache JMeter để kiểm tra hiệu suất của trang web Blue Or
 
 ![Picture2](https://github.com/KhanhChinh12/JMeter_HTTPS_API/assets/145414389/d3bc0907-be1e-41cf-b80e-2c0f7da1c4a4)
 
- - Kiểm tra lần 1, thiết lập Number of Threads (users) là "1 user" và Ramp-Up Period là "1 giây".
+#### Kiểm tra lần 1
+
+ - Thiết lập Number of Threads (users) là "1 user" và Ramp-Up Period là "1 giây".
 
 ![Picture5](https://github.com/KhanhChinh12/JMeter_HTTPS_API/assets/145414389/5d317364-15ad-4b6b-9bca-87238a6322a4)
 
@@ -48,8 +50,10 @@ Sử dụng Apache JMeter để kiểm tra hiệu suất của trang web Blue Or
    + Kích thước phản hồi: Kích thước phản hồi 174 byte là một kích thước nhỏ, giúp giảm thiểu thời gian tải trang.
 
  ![Picture6](https://github.com/KhanhChinh12/JMeter_HTTPS_API/assets/145414389/3437f996-4712-4763-b82f-6504f615cbd4)
+ 
+#### Kiểm tra lần 2
 
- - Kiểm tra lần 2, với thiết lập Number of Threads (users) là 4 users. Ramp-up period (seconds) ở đây là 1 giây. Loop Count được đặt là 2 lần. Tùy chọn Infinite cho phép chạy lặp lại vô hạn.
+ - Với thiết lập Number of Threads (users) là 4 users. Ramp-up period (seconds) ở đây là 1 giây. Loop Count được đặt là 2 lần. Tùy chọn Infinite cho phép chạy lặp lại vô hạn.
 
 ![Picture7](https://github.com/KhanhChinh12/JMeter_HTTPS_API/assets/145414389/27bf2095-faa9-47d2-a654-6e24d47be0b3)
 
@@ -77,8 +81,23 @@ Sử dụng Apache JMeter để kiểm tra hiệu suất của trang web Blue Or
 
 ![Picture9](https://github.com/KhanhChinh12/JMeter_HTTPS_API/assets/145414389/098988b1-98a0-42bb-bdbb-adb0c7639844)
 
+### Đánh giá tổng quan qua 2 lần kiểm tra hiệu năng của Blue Origin
 
+ - Thời gian lấy mẫu (Sample Time):
+   + Ở lần kiểm tra đầu tiên, thời gian lấy mẫu cho Blue Origin là 3460 ms, trong khi đó lần kiểm tra thứ hai giảm đáng kể xuống trung bình 1223 ms. Điều này cho thấy rằng kết quả lần đầu có thể bị ảnh hưởng bởi yếu tố nào đó (có thể do tải mạng hoặc các yếu tố khác) nhưng sau đó đã hoạt động ổn định hơn.
+   + Thời gian lấy mẫu của Destination cũng giảm từ 1856 ms xuống còn 1206 ms. Đây là một cải thiện rõ rệt.
+ 
+ - Dung lượng dữ liệu gửi (Sent Bytes):
+   + Không có sự thay đổi lớn về dung lượng dữ liệu gửi giữa hai lần kiểm tra cho cả Blue Origin và Destination. Điều này cho thấy các yêu cầu gửi đi có kích thước tương tự nhau trong cả hai lần kiểm tra.
 
+ - Độ trễ (Latency):
+   + Độ trễ của Blue Origin đã giảm từ 221 ms xuống 121 ms, cho thấy hiệu suất đã được cải thiện trong lần kiểm tra thứ 2.
+   + Độ trễ của Destination cũng giảm từ 211 ms xuống 115 ms.
+
+### Kết luận chung: 
+ - Hiệu suất của trang web Blue Origin đã cải thiện rõ rệt giữa hai lần kiểm tra, đặc biệt là về thời gian phản hồi và độ trễ.
+ - Các chỉ số về dung lượng dữ liệu gửi không thay đổi nhiều, cho thấy các yêu cầu gửi đi là tương tự nhau trong cả hai lần kiểm tra.
+ - Trang web Blue Origin đã có sự cải thiện về hiệu suất trong lần kiểm tra thứ 2 với thời gian phản hồi nhanh hơn và độ trễ thấp hơn.
 
 
 
