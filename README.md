@@ -99,6 +99,68 @@ Sử dụng Apache JMeter để kiểm tra hiệu suất của trang web Blue Or
  - Các chỉ số về dung lượng dữ liệu gửi không thay đổi nhiều, cho thấy các yêu cầu gửi đi là tương tự nhau trong cả hai lần kiểm tra.
  - Trang web Blue Origin đã có sự cải thiện về hiệu suất trong lần kiểm tra thứ 2 với thời gian phản hồi nhanh hơn và độ trễ thấp hơn.
 
+## Kiểm tra hiệu năng của API thời tiết
+
+### Mô tả: 
+Sử dụng Apache JMeter để kiểm tra hiệu suất của API thời tiết.
+
+### Các bước thực hiện quá trình kiểm tra: 
+ -  Thực hiện cấu hình một yêu cầu HTTP GET đến API thời tiết "api.weatherapi.com/v1/current.json" với 2 tham số: "key" và "q". Tham số "key" chứa khóa "API key" và tham số "q" chứa tên thành phố "London".
+
+![Picture12](https://github.com/KhanhChinh12/JMeter_HTTPS_API/assets/145414389/b0e87679-885f-4742-822a-473f4f5ccba3)
+
+ - Cài đặt User (Thread Group) để thực hiện kiểm tra hiệu suất của API với 6 người dùng giả lập, thời gian khởi động trong 2 giây và mỗi người dùng thực hiện các yêu cầu 1 lần.
+
+![Picture11](https://github.com/KhanhChinh12/JMeter_HTTPS_API/assets/145414389/d5e59a81-627b-41e5-b8dc-06939462b5ec)
+
+ - Thiết lập Response Assertion để kiểm tra mã phản hồi của API.
+
+ - Nếu Response Code bằng 200 thì yêu cầu thực hiện thành công, còn nếu không thì yêu cầu thực hiện thất bại. 
+
+![Picture13](https://github.com/KhanhChinh12/JMeter_HTTPS_API/assets/145414389/81c5371e-bdad-4739-8660-5bba837b1216)
+
+ - Kết quả hiển thị ở "View Results Tree" cho lần kiểm tra này:
+   + Tên: Weather API.
+   + Tên luồng: User 1-2.
+   + Thời gian tải: 179 ms.
+   + Thời gian kết nối: 90 ms.
+   + Độ trễ: 179 ms.
+   + Kích thước (byte): 1454 byte.
+   + Byte đã gửi: 179 byte.
+   + Kích thước tiêu đề (byte): 647 byte.
+   + Kích thước nội dung (byte): 807 byte.
+   + Số lượng mẫu: 1.
+   + Số lỗi: 0.
+   + Loại dữ liệu: "text"|"bin" (text).
+   + Mã phản hồi: 200.
+   + Thông báo phản hồi: OK.
+ 
+ - API đã trả về thành công với thời gian phản hồi trung bình là 179 ms.
+
+![Picture14](https://github.com/KhanhChinh12/JMeter_HTTPS_API/assets/145414389/9eb1d4e9-8729-4f97-ad8c-0e4a5a7c6a77)
+
+### Đánh giá:
+ - Điểm mạnh:
+   + Thời gian phản hồi nhanh: Thời gian phản hồi trung bình cho API là 179 ms, đây là thời gian phản hồi khá nhanh. Cho thấy API có thể xử lý các yêu cầu một cách nhanh chóng và hiệu quả.
+   + Tỷ lệ lỗi thấp: API có độ ổn định cao và ít xảy ra lỗi.
+   + Kích thước dữ liệu nhỏ: Kích thước dữ liệu trung bình cho phản hồi API là 1454 byte, đây là kích thước dữ liệu tương đối nhỏ. API có thể truyền tải dữ liệu một cách hiệu quả.
+
+ - Điểm yếu:
+   + Thời gian tải trung bình cho API là 179 ms, đây là một thời gian tải khá lâu.
+   + Độ trễ trung bình cho API là 179 ms, đây là một độ trễ khá cao.
+
+![Picture15](https://github.com/KhanhChinh12/JMeter_HTTPS_API/assets/145414389/edb32843-8fec-405d-b2f9-144b968a2e6e)
+
+### Kết luận: 
+
+Nhìn chung, API "Weather API" có hiệu năng khá tốt. Tuy nhiên, có một số điểm yếu cần được cải thiện, chẳng hạn như thời gian tải và độ trễ.
+
+
+
+
+
+
+
 
 
 
